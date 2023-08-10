@@ -22,16 +22,39 @@
 
 
 static unsigned int myButton = 8;
+static unsigned int soundSensor = 7;
+static unsigned int lightSensor = 6;
+static unsigned int myLED = 5;
 
 void setup() {
 Serial.begin(9600);
-Serial.println("Serial Monitor Configured set to 9600");
-Serial.println("---------------------------------------");
+//Serial.println("Serial Monitor Configured set to 9600");
+//Serial.println("---------------------------------------");
 pinMode(myButton, INPUT);
+pinMode(soundSensor, INPUT);
+pinMode(lightSensor, INPUT);
+pinMode(myLED, INPUT);
 }
 
 void loop() {
- unsigned int val = digitalRead(myButton);
+ unsigned int btnVal = digitalRead(myButton);
  Serial.print("ButtonValue:");
- Serial.println(val);
+ Serial.print(btnVal);
+ Serial.print(",");
+ unsigned int litVal = digitalRead(lightSensor);
+ Serial.print("LightValue:");
+ Serial.print(litVal);
+ Serial.print(",");
+ unsigned int sndVal = digitalRead(soundSensor);
+ Serial.print("SoundValue:");
+ Serial.print(sndVal);
+ Serial.println();
+
+
+  if (btnVal) {
+   digitalWrite(myLED, HIGH);
+   delay(500);
+  }
+  digitalWrite(myLED, LOW);
 }
+   
