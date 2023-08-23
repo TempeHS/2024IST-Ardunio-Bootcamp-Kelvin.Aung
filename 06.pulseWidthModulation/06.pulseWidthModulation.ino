@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Kelvin
   Learning Intention: The students will learn what 'pulse width modulation' is and how to use it to write analogue data on a digital PIN.
   Success Criteria:
     1. I understand what pulse width modulation is
@@ -16,10 +16,26 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/06.pulseWidthModulation/Bootcamp-PWMOutput.png
 */
 
-void setup() {
+//allocate pin for LED
+unsigned static int myLED = 3;
 
+
+void setup() {
+Serial.begin(9600);
+//Setup and debug serial monitor
+Serial.println("SM Working");
+Serial.println("---------------------------------");
+
+//Configure pin out
+pinMode(myLED, OUTPUT);
 }
 
 void loop() {
+
+ for (int i = 0; i <= 255; i++) {
+   analogWrite(myLED, i);
+   Serial.println(i);
+   delay(20);
+ }
 
 }
