@@ -32,6 +32,26 @@
 */
 
 void setup() {
+Serial.begin(9600);
+Serial.println("SM Working");
+Serial.println("----------");
+int myint1 = 2;
+int myint2 = 4;
+int result = myint1 + myint2;
+
+while (result < 10) {
+  Serial.println(result);
+  result++;
+  result++;
+}
+
+if (result == 7 ) {
+  Serial.println("result equals 7");
+} 
+
+else if (result < 10); {
+  Serial.println("result is less than 10");
+} 
 
 }
 
