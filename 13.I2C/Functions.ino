@@ -8,3 +8,8 @@
    u8g2.print(theTemp);                 //Write something to the Internal memory
    u8g2.sendBuffer();                   //Transfer interna memory to the display
 }
+
+
+float sampleTemperature() {
+    return myPressureSensor.getTemperature();
+}
